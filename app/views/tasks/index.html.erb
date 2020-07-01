@@ -4,6 +4,8 @@
 
 <ul>
   <% @tasks.each do |message| %>
-    <li><%= message.content %></li>
+    <li><%=link_to message.id, message%>:<%=message.content %></li>
   <% end %>
 </ul>
+
+<%=link_to "新規タスクの作成", new_task_path %>
