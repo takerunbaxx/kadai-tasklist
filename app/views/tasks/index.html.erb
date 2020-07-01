@@ -1,0 +1,9 @@
+<h1>Tasklist</h1>
+
+<h1>List to do</h1>
+
+<ul>
+  <% @tasks.each do |message| %>
+    <li><%= message.content %></li>
+  <% end %>
+</ul>
