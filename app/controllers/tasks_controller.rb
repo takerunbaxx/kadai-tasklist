@@ -49,7 +49,7 @@ class TasksController < ApplicationController
   private
   
   def task_params
-   return params.require(:task).permit(:content)
+   return params.require(:task).permit(:status,:content)
   end
 
 end
