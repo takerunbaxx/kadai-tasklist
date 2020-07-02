@@ -4,9 +4,9 @@
 <%= render 'layouts/error', model: @task %>
 <%=f.label :content, "タスク"%>
 <%=f.text_field :content%>
-<%=f.label :status, "進行状況"%>
-<%=f.text_field :status%>
-<%=f.submit "投稿"%>
+
+<%= render 'layouts/form', model: @task %>
+
 
 <%end%>
 
