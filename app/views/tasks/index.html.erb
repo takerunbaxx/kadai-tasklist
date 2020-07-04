@@ -1,11 +1,24 @@
-<h1>Tasklist</h1>
 
+<%if logged_in? %>
+<h1><%=current_user.name%>のタスク一覧</h1>
 <h1>List to do</h1>
 
 <ul>
-  <% @tasks.each do |task| %>
+  <% current_user.tasks.each do |task| %>
     <li><%=link_to task.id, task%>:<%=task.content %>:<%=task.status%></li>
   <% end %>
 </ul>
 
-<%=link_to "新規タスクの作成", new_task_path %>
+<ul>
+<li><%=link_to "新規タスクの作成", new_task_path %></li>
+<li><%=link_to "ユーザー紹介画面", user_path(@current_user.id) %></li>
+<li><%=link_to "Logout", logout_path, method: :delete%></li>
+</ul>
+
+<% else %>
+
+<h1>WELCOME TO TASKLIST</h1>
+
+<a href="<%=new_user_path%>" >Sign Up Now!</a>
+
+<%end%>

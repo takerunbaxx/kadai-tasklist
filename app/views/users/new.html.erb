@@ -1,0 +1,17 @@
+<h1>Please sign up!</h1>
+
+<%=form_with(model:@user, local: true) do |f|%>
+
+<ul>
+<li><%=f.label :name, "User Name" %> : <%=f.text_field :name%></li>
+<li><%=f.label :email, "EMAIL" %> : <%=f.text_field :email%></li>
+<li><%=f.label :password, "PASSWORD"%> : <%=f.text_field :password%></li>
+<li><%=f.label :password_confirmation, "PASSWORD AGAIN"%> : <%=f.text_field :password_confirmation%></li>
+
+
+<li><%=f.submit "sign up"%></li>
+</ul>
+
+<p>Or do you have your own account?? <%= link_to 'Login', login_path %></p>
+
+<%end%>

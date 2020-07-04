@@ -3,4 +3,6 @@
 <p>進行状況：<%=@task.status%> </p>
 <%=link_to "一覧に戻る", root_path%>
 <%=link_to "このタスクを編集する。", edit_task_path(@task)%>
+<%if current_user==@task.user%>
 <%=link_to "このタスクを削除する", @task, method: :delete,  data: { confirm: '本当に削除してよろしいですか？' } %>
+<%end%>
