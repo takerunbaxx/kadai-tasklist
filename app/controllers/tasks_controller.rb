@@ -14,7 +14,6 @@ class TasksController < ApplicationController
       flash[:success]="タスクを保存しました"
       redirect_to @task
     else
-      @task=current_user.tasks.order(id: :desc).page(params[:page])
       flash.now[:danger]="タスクは保存されませんでした。"
       render :new
     end
@@ -29,7 +28,7 @@ class TasksController < ApplicationController
   end
   
   def update
-    @task=current_user.task.find(params[:id])
+    @task=current_user.tasks.find(params[:id])
     if @task.update(task_params)
       flash[:success]="taskは正常に更新されました。"
       redirect_to @task
@@ -50,7 +49,7 @@ class TasksController < ApplicationController
   private
   
   def task_params
-   return params.require(:task).permit(:status,:content,:user_id)
+   return params.require(:task).permit(:status,:content)
   end
   
   def correct_user

@@ -4,6 +4,7 @@
 
 <%=form_with(model: @task, local: true) do |f|%>
 <%= render 'layouts/error', model: f.object %>
+
 <%=f.label :content, "タスク"%>
 <%=f.text_field :content%>
 

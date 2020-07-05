@@ -1,7 +1,9 @@
 <h1>Please sign up!</h1>
 
-<%=form_with(model:@user, local: true) do |f|%>
 
+<%=form_with(model: @user, local: true) do |f|%>
+
+<%=render "layouts/error", model: f.object%>
 <ul>
 <li><%=f.label :name, "User Name" %> : <%=f.text_field :name%></li>
 <li><%=f.label :email, "EMAIL" %> : <%=f.text_field :email%></li>
