@@ -1,16 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:show,:index]
   
-  
-  def index
-    @user=User.all
-  end
-
-  def show
-    @user=User.find(params[:id])
-    
-  end
-
   def new
     @user=User.new
   end
@@ -19,7 +9,7 @@ class UsersController < ApplicationController
     @user=User.new(user_params)
     if @user.save
       flash[:success]="ユーザー登録完了致しました。"
-      redirect_to @user
+      redirect_to root_url
     else
       flash[:danger]="ユーザー登録ができませんでした。"
       render :new
@@ -31,4 +21,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
+  
 end
