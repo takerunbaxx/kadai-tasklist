@@ -1,8 +1,5 @@
 class SessionsController < ApplicationController
-  def new
   
-  end
-
   def create
     email=params[:session][:email].downcase
     password=params[:session][:password]
